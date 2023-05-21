@@ -1,6 +1,7 @@
 import 'package:tipsy_calculator/TipCalculator/CustomTip.dart';
 import 'package:tipsy_calculator/TipCalculator/Result.dart';
 import 'package:tipsy_calculator/TipCalculator/TipBox.dart';
+import 'package:tipsy_calculator/colors/TipsyColor.dart';
 import 'package:tipsy_calculator/model/bill.dart';
 import 'package:flutter/material.dart';
 
@@ -37,15 +38,38 @@ class _TipCalculatorState extends State<TipCalculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Tipsy"),
-        ),
+        // appBar: AppBar(
+        //   title: const Text("Tipsy"),
+        // ),
+        // drawer: Drawer(
+        //     child: ListTile(
+        //   title: const Text("Item1"),
+        //   onTap: () {
+        //     Navigator.pop(context);
+        //   },
+        // ) //populate drawer
+        //     ),
         body: Container(
+          width: 400,
+          height: 800,
+          decoration: const BoxDecoration(
+            color: Colors.black,
+            //border: Border.all(width: 10,color: Colors.red),
+          ),
           padding: const EdgeInsets.only(top: 24, right: 40, left: 40),
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                Container(
+                  width: 300,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    color: Colors.blueGrey[800],
+                  ),
+                ),
+                //Icon Button
+                IconButton(onPressed: (){}, icon: const Icon(Icons.menu)),
                 TextField(
                   onChanged: (value) => {
                     setState(() {
