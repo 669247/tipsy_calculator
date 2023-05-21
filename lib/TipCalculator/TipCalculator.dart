@@ -38,6 +38,8 @@ class _TipCalculatorState extends State<TipCalculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      
         // appBar: AppBar(
         //   title: const Text("Tipsy"),
         // ),
@@ -49,100 +51,156 @@ class _TipCalculatorState extends State<TipCalculator> {
         //   },
         // ) //populate drawer
         //     ),
-        body: Container(
-          width: 400,
-          height: 800,
-          decoration: const BoxDecoration(
-            color: Colors.black,
-            //border: Border.all(width: 10,color: Colors.red),
-          ),
-          padding: const EdgeInsets.only(top: 24, right: 40, left: 40),
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: 300,
-                  height: 200,
-                  decoration: BoxDecoration(
-                    color: Colors.blueGrey[800],
+
+        body:
+            // Container of Full Screen in which I set the full screen background color.
+            
+            Container(
+              
+      width: 400,
+      height: 800,
+      decoration: const BoxDecoration(
+        color: Colors.black,
+        //border: Border.all(width: 10,color: Colors.red),
+      ),
+      
+      padding: const EdgeInsets.only(top: 24, right: 40, left: 40),
+      child: Column(
+        
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            
+
+            //Camera Icon
+            FloatingActionButton(
+               
+              backgroundColor: Colors.black,
+              onPressed: () {},
+              child: const Icon(
+                Icons.camera_alt,
+                size: 35,
+                color: Colors.white,
+              ),
+              
+            ),
+            
+
+            Container(
+              margin: const EdgeInsets.only(left: 20),
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  color: Colors.blueGrey[800],
+                  borderRadius: BorderRadius.circular(8)),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Attendance SUmmary",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w300,
+                            color: Colors.white,
+                            fontSize: 12),
+                      ),
+                      Text(
+                        'Present : 20  | Absentees : 10',
+                        style: TextStyle(color: Colors.white, fontSize: 14),
+                      ),
+                    ],
                   ),
-                ),
-                //Icon Button
-                IconButton(onPressed: (){}, icon: const Icon(Icons.menu)),
-                TextField(
-                  onChanged: (value) => {
-                    setState(() {
-                      bill.totalAmount = double.parse(value);
-                    })
-                  },
-                  style: Theme.of(context).textTheme.headline4,
-                  decoration: InputDecoration(
-                      labelText: "Enter Bill Amount",
-                      prefixText: "\$ ",
-                      prefixStyle: Theme.of(context).textTheme.headline4,
-                      labelStyle:
-                          const TextStyle(color: Colors.grey, fontSize: 18)),
-                  keyboardType: TextInputType.number,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 12),
-                  child: Text("Choose Tip",
-                      style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                          fontWeight: FontWeight.bold, fontSize: 24)),
-                ),
-                Wrap(
-                  spacing: 20,
-                  children: [
-                    ...tips.map((tip) => TipBox(
-                        isSelected:
-                            bill.tipAmount == bill.totalAmount * tip / 100,
-                        text: '$tip%',
-                        onTap: () {
-                          calculateTip(tip.toDouble());
-                        })),
-                    TipBox(
-                        isSelected: false,
-                        text: "Custom Tip",
-                        onTap: () {
-                          openCustomTip(context);
-                        }),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 12),
-                  child: Text("Split",
-                      style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                          fontWeight: FontWeight.bold, fontSize: 24)),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(
-                        onPressed: () => {
-                              setState(() {
-                                bill.noOfPeople--;
-                              })
-                            },
-                        icon: Icon(Icons.remove,
-                            size: 24, color: Theme.of(context).primaryColor)),
-                    Text(bill.noOfPeople.toString(),
-                        style: Theme.of(context).textTheme.headline4),
-                    IconButton(
-                        onPressed: () => {
-                              setState(() {
-                                bill.noOfPeople++;
-                              })
-                            },
-                        icon: Icon(Icons.add,
-                            size: 24, color: Theme.of(context).primaryColor)),
-                  ],
-                ),
-                ResultTip(
-                  bill: bill,
-                ),
-              ]),
-        ));
+                  Text(
+                    "Review",
+                    style: TextStyle(color: Colors.white),
+                  )
+                ],
+              ),
+            ),
+
+            //Icon Button
+            IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.menu, color: Colors.white)),
+
+            TextField(
+              onChanged: (value) => {
+                setState(() {
+                  bill.totalAmount = double.parse(value);
+                })
+              },
+              style: Theme.of(context).textTheme.headline4,
+              decoration: InputDecoration(
+                  labelText: "Enter Bill Amount",
+                  prefixText: "\$ ",
+                  prefixStyle: Theme.of(context).textTheme.headline4,
+                  labelStyle:
+                      const TextStyle(color: Colors.grey, fontSize: 18)),
+              keyboardType: TextInputType.number,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 12),
+              child: Text("Choose Tip",
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle1
+                      ?.copyWith(fontWeight: FontWeight.bold, fontSize: 24)),
+            ),
+            Wrap(
+              spacing: 20,
+              children: [
+                ...tips.map((tip) => TipBox(
+                    isSelected: bill.tipAmount == bill.totalAmount * tip / 100,
+                    text: '$tip%',
+                    onTap: () {
+                      calculateTip(tip.toDouble());
+                    })),
+                TipBox(
+                    isSelected: false,
+                    text: "Custom Tip",
+                    onTap: () {
+                      openCustomTip(context);
+                    }),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 12),
+              child: Text("Split",
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle1
+                      ?.copyWith(fontWeight: FontWeight.bold, fontSize: 24)),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                    onPressed: () => {
+                          setState(() {
+                            bill.noOfPeople--;
+                          })
+                        },
+                    icon: Icon(Icons.remove,
+                        size: 24, color: Theme.of(context).primaryColor)),
+                Text(bill.noOfPeople.toString(),
+                    style: Theme.of(context).textTheme.headline4),
+                IconButton(
+                    onPressed: () => {
+                          setState(() {
+                            bill.noOfPeople++;
+                          })
+                        },
+                    icon: Icon(Icons.add,
+                        size: 24, color: Theme.of(context).primaryColor)),
+              ],
+            ),
+            ResultTip(
+              bill: bill,
+            ),
+          ]),
+    ));
   }
 }
 
