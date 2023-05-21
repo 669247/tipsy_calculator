@@ -86,40 +86,7 @@ class _TipCalculatorState extends State<TipCalculator> {
             ),
             
 
-            Container(
-              margin: const EdgeInsets.only(left: 20),
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                  color: Colors.blueGrey[800],
-                  borderRadius: BorderRadius.circular(8)),
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Attendance SUmmary",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w300,
-                            color: Colors.white,
-                            fontSize: 12),
-                      ),
-                      Text(
-                        'Present : 20  | Absentees : 10',
-                        style: TextStyle(color: Colors.white, fontSize: 14),
-                      ),
-                    ],
-                  ),
-                  Text(
-                    "Review",
-                    style: TextStyle(color: Colors.white),
-                  )
-                ],
-              ),
-            ),
-
+            
             //Icon Button
             IconButton(
                 onPressed: () {},
