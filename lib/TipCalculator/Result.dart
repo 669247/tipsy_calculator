@@ -1,7 +1,6 @@
+import 'package:tipsy_calculator/colors/TipsyColor.dart';
 import 'package:tipsy_calculator/model/bill.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class ResultTip extends StatelessWidget {
   const ResultTip({Key? key, required this.bill}) : super(key: key);
@@ -10,14 +9,137 @@ class ResultTip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+          color: tipsyColor.shade100,
+          borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(24), topRight: Radius.circular(24))),
+      padding: const EdgeInsets.only(top: 32, bottom: 52, left: 32, right: 32),
       child: Column(children: [
-        Text("Total Amount"),
-        Text("\$" + bill.getAmountPerPerson()),
-        Text("Tip Amount Per Person"),
-        Text(bill.getTipAmountPerPerson()),
-        Text("Bill Amount Per Person"),
-        Text(bill.getBillAmountPerPerson()),
+        Text(
+          "Total per Person",
+          style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 18),
+        ),
+        const Padding(padding: EdgeInsets.all(4)),
+        Text(
+          "\$${bill.getAmountPerPerson()}",
+          style: Theme.of(context).textTheme.headline4?.copyWith(fontSize: 52),
+        ),
+        const Padding(padding: EdgeInsets.all(20)),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Column(children: [
+              Text(
+                "Tip",
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle1
+                    ?.copyWith(fontSize: 18),
+              ),
+              Text(
+                "\$${bill.getTipAmountPerPerson()}",
+                style: Theme.of(context)
+                    .textTheme
+                    .headline4
+                    ?.copyWith(fontSize: 24),
+              ),
+            ]),
+            Column(children: [
+              Text(
+                "Bill",
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle1
+                    ?.copyWith(fontSize: 18),
+              ),
+              Text(
+                "\$${bill.getBillAmountPerPerson()}",
+                style: Theme.of(context)
+                    .textTheme
+                    .headline4
+                    ?.copyWith(fontSize: 24),
+              ),
+            ])
+          ],
+        )
       ]),
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import 'package:tipsy_calculator/colors/TipsyColor.dart';
+// import 'package:tipsy_calculator/model/bill.dart';
+// import 'package:flutter/material.dart';
+// import 'package:dart_app/colors/TipsyColor.dart';
+
+
+// class ResultTip extends StatelessWidget {
+//   const ResultTip({Key? key, required this.bill}) : super(key: key);
+//   final Bill bill;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       decoration: const BoxDecoration(
+//         color: tipsyColor.shade100,
+//         borderRadius: BorderRadius.only(
+//           topLeft: Radius.circular(24), topRight: Radius.circular(24))),
+//           padding: const EdgeInsets.only(top: 32, bottom: 52, left: 32, right: 32),
+//           child: Column(
+//             children: [
+//               Text(
+//                 "Total Per Person",
+//                 style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 18),
+//               ),
+//               const Padding(padding: EdgeInsets.all(4)),
+//               Text(
+//                 "\$${bill.getAmountPerPerson()}",
+//                 style: Theme.of(context).textTheme.headline4?.copyWith(fontSize: 52),
+//               ),
+//               const Padding(padding: EdgeInsets.all(20)),
+//               Row(
+//                 mainAxisAlignment: MainAxisAlignment.spaceAround,
+//                 children: [
+//                   Column(children: [
+//                     Text(
+//                       "Tip",
+//                       style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 18),
+//                     ),
+//                     Text(
+//                       "\$${bill.getTipAmountPerPerson()}",
+//                       style: Theme.of(context).textTheme.headline4?.copyWith(fontSize: 24),
+//                     ),
+//                   ]),
+//                   Column(children: [
+//                     Text(
+//                       "Bill",
+//                       style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 18),
+//                     ),
+//                     Text(
+//                       "\$${bill.getBillAmountPerPerson()}",
+//                       style: Theme.of(context).textTheme.headline4?.copyWith(fontSize: 24),
+//                     ),
+//                   ])
+//                 ],
+//               )
+//             ]),
+//     );
+//   }
+// }
