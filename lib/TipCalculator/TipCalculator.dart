@@ -1,7 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:tipsy_calculator/TipCalculator/CustomTip.dart';
 import 'package:tipsy_calculator/TipCalculator/Result.dart';
 import 'package:tipsy_calculator/TipCalculator/TipBox.dart';
-import 'package:tipsy_calculator/colors/TipsyColor.dart';
 import 'package:tipsy_calculator/model/bill.dart';
 import 'package:flutter/material.dart';
 
@@ -38,55 +38,32 @@ class _TipCalculatorState extends State<TipCalculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      
-        // appBar: AppBar(
-        //   title: const Text("Tipsy"),
-        // ),
-        // drawer: Drawer(
-        //     child: ListTile(
-        //   title: const Text("Item1"),
-        //   onTap: () {
-        //     Navigator.pop(context);
-        //   },
-        // ) //populate drawer
-        //     ),
-
         body:
             // Container of Full Screen in which I set the full screen background color.
-            
+
             Container(
-              
       width: 400,
       height: 800,
       decoration: const BoxDecoration(
-        color: Colors.black,
+        color: Colors.white,
         //border: Border.all(width: 10,color: Colors.red),
       ),
-      
       padding: const EdgeInsets.only(top: 24, right: 40, left: 40),
       child: Column(
-        
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            
-
             //Camera Icon
             FloatingActionButton(
-               
-              backgroundColor: Colors.black,
+              backgroundColor: Colors.white,
               onPressed: () {},
               child: const Icon(
                 Icons.camera_alt,
                 size: 35,
-                color: Colors.white,
+                color: Colors.black,
               ),
-              
             ),
-            
 
-            
             //Icon Button
             IconButton(
                 onPressed: () {},
@@ -108,7 +85,7 @@ class _TipCalculatorState extends State<TipCalculator> {
               keyboardType: TextInputType.number,
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 12),
+              padding: const EdgeInsets.only(top: 12, right: 150),
               child: Text("Choose Tip",
                   style: Theme.of(context)
                       .textTheme
@@ -133,12 +110,12 @@ class _TipCalculatorState extends State<TipCalculator> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 12),
+              padding: const EdgeInsets.only(top: 250, right: 220),
               child: Text("Split",
-                  style: Theme.of(context)
-                      .textTheme
-                      .subtitle1
-                      ?.copyWith(fontWeight: FontWeight.bold, fontSize: 24)),
+                  style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                      color: Colors.pink[300])),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -149,8 +126,8 @@ class _TipCalculatorState extends State<TipCalculator> {
                             bill.noOfPeople--;
                           })
                         },
-                    icon: Icon(Icons.remove,
-                        size: 24, color: Theme.of(context).primaryColor)),
+                    icon: Icon(Icons.remove_circle_outline,
+                        size: 24, color: Colors.pink[300])),
                 Text(bill.noOfPeople.toString(),
                     style: Theme.of(context).textTheme.headline4),
                 IconButton(
@@ -159,8 +136,8 @@ class _TipCalculatorState extends State<TipCalculator> {
                             bill.noOfPeople++;
                           })
                         },
-                    icon: Icon(Icons.add,
-                        size: 24, color: Theme.of(context).primaryColor)),
+                    icon: Icon(Icons.add_circle_outline,
+                        size: 24, color: Colors.pink[300])),
               ],
             ),
             ResultTip(
@@ -170,195 +147,3 @@ class _TipCalculatorState extends State<TipCalculator> {
     ));
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import 'package:tipsy_calculator/TipCalculator/Result.dart';
-// import 'package:tipsy_calculator/model/bill.dart';
-// import 'package:flutter/material.dart';
-// import 'package:tipsy_calculator/TipCalculator/CustomTip.dart';
-// import 'package:tipsy_calculator/TipCalculator/TipBox.dart';
-
-
-// class TipCalculator extends StatefulWidget {
-//   const TipCalculator({Key? key}) : super(key: key);
-
-//   @override
-//   State<TipCalculator> createState() => _TipCalculatorState();
-// }
-
-// class _TipCalculatorState extends State<TipCalculator> {
-//   Bill bill = Bill(totalAmount: 0, tipAmount: 10, noOfPeople: 2);
-//   List<int> tips = [10, 15, 20, 25];
-
-//   calculateTip(double percentage) {
-//     bill.tipAmount = bill.totalAmount * percentage / 100;
-//     setState(() {});
-//   }
-
-//   openCustomTip(context) {
-//     showModalBottomSheet(
-//         context: context,
-//         shape: const RoundedRectangleBorder(
-//             borderRadius: BorderRadius.vertical(top: Radius.circular(25.0))),
-//         isScrollControlled: true,
-//         builder: (builder) {
-//           return Padding(
-//               padding: EdgeInsets.only(
-//                   bottom: MediaQuery.of(context).viewInsets.bottom),
-//               child: CustomTip(bill: bill));
-//         }).then((value) => {setState(() {})});
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Center(child: Text("Tipsy")),
-//       ),
-//       body: Container(
-//         padding: const EdgeInsets.all(24),
-//         child: Card(
-//           shape: RoundedRectangleBorder(
-//             borderRadius: BorderRadius.circular(15.0),
-//           ),
-//           color: Colors.red,
-//           elevation: 10,
-//           child: const Column(
-//             mainAxisSize: MainAxisSize.min,
-//             children: <Widget>[
-//               ListTile(
-//                 leading: Icon(Icons.currency_bitcoin, size: 30),
-//                 title: Text(
-//                   "Per Person",
-//                   style: TextStyle(fontSize: 20),
-//                 ),
-//                 subtitle: Text(
-//                   "Total",
-//                   style: TextStyle(fontSize: 15),
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ),
-//         // child: Column(children: [
-//         //   TextField(
-//         //     onChanged: (value) => {
-//         //       setState(() {
-//         //         bill.totalAmount = double.parse(value);
-//         //       })
-//         //     },
-//         //     decoration: InputDecoration(labelText: "Enter Bill Amount"),
-//         //     keyboardType: TextInputType.number,
-//         //   ),
-//         //   const Padding(
-//         //     padding: EdgeInsets.all(24),
-//         //     child: Text("Choose Tip"),
-//         //   ),
-//         //   Wrap(
-//         //     spacing: 20,
-//         //     children: [
-//         //       ElevatedButton(
-//         //           onPressed: () {
-//         //             calculateTip(10);
-//         //           },
-//         //           child: Text("10%")),
-//         //       ElevatedButton(
-//         //           onPressed: () {
-//         //             calculateTip(15);
-//         //           },
-//         //           child: Text("15%")),
-//         //       ElevatedButton(
-//         //           onPressed: () {
-//         //             calculateTip(20);
-//         //           },
-//         //           child: Text("20%")),
-//         //       ElevatedButton(
-//         //           onPressed: () {
-//         //             calculateTip(25);
-//         //           },
-//         //           child: Text("25%")),
-//         //       ElevatedButton(onPressed: () {}, child: Text("Custom Tip"))
-//         //     ],
-//         //   ),
-//         //   const Padding(
-//         //     padding: EdgeInsets.all(24),
-//         //     child: Text("Split"),
-//         //   ),
-//         //   Row(
-//         //     children: [
-//         //       IconButton(
-//         //           onPressed: () => {
-//         //                 setState(() {
-//         //                   bill.noOfPeople--;
-//         //                 })
-//         //               },
-//         //           icon: const Icon(
-//         //             Icons.remove,
-//         //             size: 24,
-//         //           )),
-//         //       Text(bill.noOfPeople.toString()),
-//         //       IconButton(
-//         //           onPressed: () => {
-//         //                 setState(() {
-//         //                   bill.noOfPeople++;
-//         //                 })
-//         //               },
-//         //           icon: const Icon(
-//         //             Icons.add,
-//         //             size: 24,
-//         //           )),
-//         //     ],
-//         //   ),
-//         //   ResultTip(
-//         //     bill: bill,
-//         //   ),
-//         // ]
-
-//         // ),
-//       ),
-//       drawer: Drawer(
-//         child: ListView(
-//           padding: EdgeInsets.zero,
-//           children: <Widget>[
-//             const DrawerHeader(
-//               child: Text('Menu'),
-//               decoration: BoxDecoration(
-//                 color: Colors.blue,
-//               ),
-//             ),
-//             ListTile(
-//               title: const Text('Item 1'),
-//               onTap: () {
-//                 // Add your code here
-//                 Navigator.pop(context);
-//               },
-//             ),
-//             ListTile(
-//               title: const Text('Item 2'),
-//               onTap: () {
-//                 // Add your code here
-//                 Navigator.pop(context);
-//               },
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }

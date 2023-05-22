@@ -1,4 +1,3 @@
-import 'package:tipsy_calculator/colors/TipsyColor.dart';
 import 'package:tipsy_calculator/model/bill.dart';
 import 'package:flutter/material.dart';
 
@@ -9,137 +8,116 @@ class ResultTip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-          color: tipsyColor.shade100,
-          borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(24), topRight: Radius.circular(24))),
-      padding: const EdgeInsets.only(top: 32, bottom: 52, left: 32, right: 32),
-      child: Column(children: [
-        Text(
-          "Total per Person",
-          style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 18),
-        ),
-        const Padding(padding: EdgeInsets.all(4)),
-        Text(
-          "\$${bill.getAmountPerPerson()}",
-          style: Theme.of(context).textTheme.headline4?.copyWith(fontSize: 52),
-        ),
-        const Padding(padding: EdgeInsets.all(20)),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Column(children: [
-              Text(
-                "Tip",
-                style: Theme.of(context)
-                    .textTheme
-                    .subtitle1
-                    ?.copyWith(fontSize: 18),
-              ),
-              Text(
-                "\$${bill.getTipAmountPerPerson()}",
-                style: Theme.of(context)
-                    .textTheme
-                    .headline4
-                    ?.copyWith(fontSize: 24),
-              ),
-            ]),
-            Column(children: [
-              Text(
-                "Bill",
-                style: Theme.of(context)
-                    .textTheme
-                    .subtitle1
-                    ?.copyWith(fontSize: 18),
-              ),
-              Text(
-                "\$${bill.getBillAmountPerPerson()}",
-                style: Theme.of(context)
-                    .textTheme
-                    .headline4
-                    ?.copyWith(fontSize: 24),
-              ),
-            ])
-          ],
-        )
-      ]),
+      child: Scaffold(),
     );
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import 'package:tipsy_calculator/colors/TipsyColor.dart';
-// import 'package:tipsy_calculator/model/bill.dart';
-// import 'package:flutter/material.dart';
-// import 'package:dart_app/colors/TipsyColor.dart';
-
-
-// class ResultTip extends StatelessWidget {
-//   const ResultTip({Key? key, required this.bill}) : super(key: key);
-//   final Bill bill;
+// class Wheel extends StatefulWidget {
+//   const Wheel({Key? key}) : super(key: key);
 
 //   @override
+//   State<Wheel> createState() => _WheelState();
+// }
+
+// class _WheelState extends State<Wheel> {
+//   @override
 //   Widget build(BuildContext context) {
-//     return Container(
-//       decoration: const BoxDecoration(
-//         color: tipsyColor.shade100,
-//         borderRadius: BorderRadius.only(
-//           topLeft: Radius.circular(24), topRight: Radius.circular(24))),
-//           padding: const EdgeInsets.only(top: 32, bottom: 52, left: 32, right: 32),
-//           child: Column(
-//             children: [
-//               Text(
-//                 "Total Per Person",
-//                 style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 18),
-//               ),
-//               const Padding(padding: EdgeInsets.all(4)),
-//               Text(
-//                 "\$${bill.getAmountPerPerson()}",
-//                 style: Theme.of(context).textTheme.headline4?.copyWith(fontSize: 52),
-//               ),
-//               const Padding(padding: EdgeInsets.all(20)),
-//               Row(
-//                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-//                 children: [
-//                   Column(children: [
-//                     Text(
-//                       "Tip",
-//                       style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 18),
-//                     ),
-//                     Text(
-//                       "\$${bill.getTipAmountPerPerson()}",
-//                       style: Theme.of(context).textTheme.headline4?.copyWith(fontSize: 24),
-//                     ),
-//                   ]),
-//                   Column(children: [
-//                     Text(
-//                       "Bill",
-//                       style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 18),
-//                     ),
-//                     Text(
-//                       "\$${bill.getBillAmountPerPerson()}",
-//                       style: Theme.of(context).textTheme.headline4?.copyWith(fontSize: 24),
-//                     ),
-//                   ])
-//                 ],
-//               )
-//             ]),
-//     );
-//   }
+//     return Scaffold(
+      // body: ListWheelScrollView(
+      //   itemExtent: 100,
+      //   clipBehavior: Clip.antiAlias,
+      //   children: const <Widget>[
+      //     ElevatedButton(
+      //       onPressed: null,
+      //       child: Text(
+      //         'Item 1',
+      //         textAlign: TextAlign.start,
+      //         style: TextStyle(
+      //             fontSize: 25,
+      //             color: Colors.black,
+      //             fontWeight: FontWeight.bold),
+      //       ),
+      //     ),
+      //     ElevatedButton(
+      //       onPressed: null,
+      //       child: Text(
+      //         'Item 2',
+      //         textAlign: TextAlign.start,
+      //         style: TextStyle(
+      //             fontSize: 25,
+      //             color: Colors.black,
+      //             fontWeight: FontWeight.bold),
+      //       ),
+      //     ),
+      //     ElevatedButton(
+      //       onPressed: null,
+      //       child: Text(
+      //         'Item 3',
+      //         textAlign: TextAlign.start,
+      //         style: TextStyle(
+      //             fontSize: 25,
+      //             color: Colors.black,
+      //             fontWeight: FontWeight.bold),
+      //       ),
+      //     ),
+      //     ElevatedButton(
+      //       onPressed: null,
+      //       child: Text(
+      //         'Item 4',
+      //         textAlign: TextAlign.start,
+      //         style: TextStyle(
+      //             fontSize: 25,
+      //             color: Colors.black,
+      //             fontWeight: FontWeight.bold),
+      //       ),
+      //     ),
+      //     ElevatedButton(
+      //       onPressed: null,
+      //       child: Text(
+      //         'Item 5',
+      //         textAlign: TextAlign.start,
+      //         style: TextStyle(
+      //             fontSize: 25,
+      //             color: Colors.black,
+      //             fontWeight: FontWeight.bold),
+      //       ),
+      //     ),
+      //     ElevatedButton(
+      //       onPressed: null,
+      //       child: Text(
+      //         'Item 6',
+      //         textAlign: TextAlign.start,
+      //         style: TextStyle(
+      //             fontSize: 25,
+      //             color: Colors.black,
+      //             fontWeight: FontWeight.bold),
+      //       ),
+      //     ),
+      //     ElevatedButton(
+      //       onPressed: null,
+      //       child: Text(
+      //         'Item 7',
+      //         textAlign: TextAlign.start,
+      //         style: TextStyle(
+      //             fontSize: 25,
+      //             color: Colors.black,
+      //             fontWeight: FontWeight.bold),
+      //       ),
+      //     ),
+      //     ElevatedButton(
+      //       onPressed: null,
+      //       child: Text(
+      //         'Item 8',
+      //         textAlign: TextAlign.start,
+      //         style: TextStyle(
+      //             fontSize: 25,
+      //             color: Colors.black,
+      //             fontWeight: FontWeight.bold),
+      //       ),
+      //     ),
+      //   ],
+      // ),
+    // );
+  // }
 // }
